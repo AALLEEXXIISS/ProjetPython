@@ -25,8 +25,11 @@ class Acces:
         pass
 
     def lancer_procedure_entree(self,client):
+        #Action Borne, série de questions
+        #
         voiture = self.actionner_camera(client)
         place = self.__mon_parking.rechercher_place(voiture)
-
-        #self.__mon_teleporteur.teleporter_voiture(voiture, place)
+        #délivraison ticket avec num place
+        placement = self.__mon_teleporteur.teleporter_voiture(voiture, place)
+        #Action vue Panneau d'affichage
         return place

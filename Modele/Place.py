@@ -10,7 +10,7 @@ class Place:
 
 
     def add_placement(self):
-        pass
+        self.__est_libre = False
 
     @property
     def numero(self):
@@ -33,6 +33,7 @@ class Place:
     @property
     def id(self):
         return str(self.__niveau) + "/" + str(self.__numero)
+
 
     def __str__(self):
         return "Place : " + self.id

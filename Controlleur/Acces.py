@@ -22,7 +22,7 @@ class Acces:
         return Voiture(imma, long, haut)
 
     def actionner_panneau(self):
-        pass
+
 
     def lancer_procedure_entree(self,client):
         #Action Borne, série de questions

@@ -10,7 +10,6 @@ class ParkingTest(unittest.TestCase):
 
     def test_instanciation(self):
         p = Parking(10,10,150,2,4,2,3)
-        print(p)
         self.assertEqual(100,p.nb_place_libres)
 
     def test_rechercher_place(self):
@@ -24,3 +23,4 @@ class ParkingTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+-

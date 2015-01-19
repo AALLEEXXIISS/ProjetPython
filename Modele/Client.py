@@ -4,7 +4,7 @@ from Modele.Voiture import Voiture
 
 
 class Client:
-    def __init__(self, nom, adresse, est_abonne, est_super_abonne):
+    def __init__(self, nom, adresse, est_abonne = None, est_super_abonne = None):
         self.__nom = nom
         self.__adresse = adresse
         self.__est_abonne = est_abonne

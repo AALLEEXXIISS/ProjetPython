@@ -17,26 +17,38 @@ from Controlleur.CreerClient import CreerClient
 class Main():
     def __init__(self):
 
+        #TODO Récupérer parking base de données
+        self.__parking = Parking(10,10,100,1,3,1,3)
+
         app = QtGui.QApplication(sys.argv)
         self.__view = MainWindow()
         self.__ui = Ui_MainWindow()
         self.__ui.setupUi(self.__view)
 
         #connect
-        self.__ui.pB_creer_parking.clicked.connect(self.creer_parking)
-        self.__ui.pB_creer_client.clicked.connect(self.creer_client)
+        self.__ui.pB_creer_parking.clicked.connect(self.afficher_garer_reprendre)
+        self.__ui.pB_creer_client.clicked.connect(self.ouvrir_bornes)
+        #self.__ui.actionOuvrir_Bornes.clicked.connect(self.afficher_garer_reprendre)
+
+
 
 
         self.afficher()
         sys.exit(app.exec_())
+    def afficher_garer_reprendre(self):
+        self.__view.hide()
+        self.__widgetCourant = Acces(self, self.__parking)
+
 
     def creer_parking(self):
         self.__view.hide()
         self.__widgetCourant = CreerParking(self)
 
-    def creer_client(self):
+    def ouvrir_bornes(self):
         self.__view.hide()
-        self.__widgetCourant = CreerClient(self)
+        self.__acces = Acces(self, self.__parking)
+        self.__widgetCourant = self.__acces
+        self.__acces.lancer_procedure_entree()
 
     def afficher(self):
         self.__view.show()
